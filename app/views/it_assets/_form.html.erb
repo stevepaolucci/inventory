@@ -18,7 +18,7 @@
 
   <div class="my-5">
     <%= form.label :barcode %>
-    <%= form.number_field :barcode, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.number_field :barcode, value: it_asset.barcode || params['barcode'], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
@@ -55,7 +55,10 @@
     <%= form.label :location %>
     <%= form.text_field :location, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
-
+  <div class="my-5">
+  <%= form.label :damaged %>
+  <%= form.text_field :damaged, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+</div>
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>

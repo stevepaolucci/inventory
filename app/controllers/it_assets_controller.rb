@@ -4,7 +4,12 @@ class ItAssetsController < ApplicationController
   # GET /it_assets or /it_assets.json
   def index
     @it_assets = ItAsset.all
-    @it_assets = @it_assets.where(barcode: params['code']) if params['code'].present?
+    if params['code'].present?
+      @it_assets = @it_assets.where(barcode: params['code'])
+      Scan.create(barcode: params['code'], scanned_at: Time.zone.now)
+    end
+    # redirect_to new_it_asset_path if @it_assets.count == 0
+    redirect_to "/it_assets/new?barcode=#{params['code']}" if @it_assets.count == 0
   end
 
   # GET /it_assets/1 or /it_assets/1.json
@@ -39,7 +44,7 @@ class ItAssetsController < ApplicationController
   def update
     respond_to do |format|
       if @it_asset.update(it_asset_params)
-        format.html { redirect_to it_asset_url(@it_asset), notice: "It asset was successfully updated." }
+        format.html { redirect_to it_assets_url, notice: "It asset was successfully updated." }
         format.json { render :show, status: :ok, location: @it_asset }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,6 +71,6 @@ class ItAssetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def it_asset_params
-      params.require(:it_asset).permit(:username, :barcode, :asset_name, :notes, :password, :distributed_at, :returned_at, :asset_type, :location)
+      params.require(:it_asset).permit(:username, :barcode, :asset_name, :notes, :password, :distributed_at, :returned_at, :asset_type, :location, :damaged)
     end
 end

@@ -1,3 +1,3 @@
 class Scan < ApplicationRecord
-  belongs_to :it_asset
+  # belongs_to :it_asset
 end
