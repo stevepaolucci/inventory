@@ -1,0 +1,89 @@
+
+  <script>
+  
+    var input = document.getElementById('code');
+    input.focus();
+    input.select();
+
+  $(document).on("keypress", "form", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        // Alerts the user when the Enter key is pressed
+        alert("You have successfully submitted the form!");
+        $(this).submit();
+    }
+  });
+  </script>
+
+
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Nucleus Assets</h1>
+    <%= link_to "Add Asset", new_it_asset_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+
+    <form>
+      <input type="text" id="code" name="code" required>
+      <input type="submit" value="Submit" class="hidden">
+    </form>
+
+  </div>
+
+
+<br><br>
+
+
+  <table id="it_assets" class="min-w-full">
+
+
+  <tr>
+  <th class="text-gray-400 px-3 py-0 pb-1 pt-1 items-left text-left text-sm font-normal">
+    <strong class="block font-medium mb-1">Username:</strong>
+  </th>
+
+  <th class="text-gray-400 px-3 py-0 pb-1 pt-1 items-left text-left text-sm font-normal">
+    <strong class="block font-medium mb-1">Barcode:</strong>
+  </th>
+
+  <th class="text-gray-400 px-3 py-0 pb-1 pt-1 items-left text-left text-sm font-normal">
+    <strong class="block font-medium mb-1">Asset name:</strong>
+  </th>
+
+  <th class="text-gray-400 px-3 py-0 pb-1 pt-1 items-left text-left text-sm font-normal">
+    <strong class="block font-medium mb-1">Notes:</strong>
+  </th>
+
+  <th class="text-gray-400 px-3 py-0 pb-1 pt-1 items-left text-left text-sm font-normal">
+    <strong class="block font-medium mb-1">Password:</strong>
+  </th>
+
+  <th class="text-gray-400 px-3 py-0 pb-1 pt-1 items-left text-left text-sm font-normal">
+    <strong class="block font-medium mb-1">Distributed at:</strong>
+  </th>
+
+  <th class="text-gray-400 px-3 py-0 pb-1 pt-1 items-left text-left text-sm font-normal">
+    <strong class="block font-medium mb-1">Returned at:</strong>
+  </th>
+
+  <th class="text-gray-400 px-3 py-0 pb-1 pt-1 items-left text-left text-sm font-normal">
+    <strong class="block font-medium mb-1">Asset type:</strong>
+  </th>
+
+  <th class="text-gray-400 px-3 py-0 pb-1 pt-1 items-left text-left text-sm font-normal">
+    <strong class="block font-medium mb-1">Location:</strong>
+  </th>
+  <th class="text-gray-400 px-3 py-0 pb-1 pt-1 items-left text-left text-sm font-normal">
+
+  </th>
+</tr>
+
+
+
+
+
+    <%= render @it_assets %>
+  </table>
+</div>

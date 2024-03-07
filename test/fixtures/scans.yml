@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scanned_at: 2024-03-07 10:25:20
+  it_asset: one
+
+two:
+  scanned_at: 2024-03-07 10:25:20
+  it_asset: two

@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  barcode: 1
+  asset_name: MyString
+  notes: MyText
+  password: MyString
+  distributed_at: 2024-03-06
+  returned_at: 2024-03-06
+  asset_type: MyString
+  location: MyString
+
+two:
+  username: MyString
+  barcode: 1
+  asset_name: MyString
+  notes: MyText
+  password: MyString
+  distributed_at: 2024-03-06
+  returned_at: 2024-03-06
+  asset_type: MyString
+  location: MyString

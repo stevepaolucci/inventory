@@ -1,0 +1,2 @@
+class ItAsset < ApplicationRecord
+end

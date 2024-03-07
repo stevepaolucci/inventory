@@ -1,0 +1,42 @@
+<tr id="<%= dom_id it_asset %>">
+  <td class="text-sm px-4  text-gray-900">
+    <%= it_asset.username %>
+  </td>
+
+  <td class="text-sm px-4  text-gray-900">
+    <%= it_asset.barcode %>
+  </td>
+
+  <td class="text-sm px-4  text-gray-900">
+    <%= it_asset.asset_name %>
+  </td>
+
+  <td class="text-sm px-4  text-gray-900">
+    <%= it_asset.notes %>
+  </td>
+
+  <td class="text-sm px-4  text-gray-900">
+    <%= it_asset.password %>
+  </td>
+
+  <td class="text-sm px-4  text-gray-900">
+    <%= it_asset.distributed_at %>
+  </td>
+
+  <td class="text-sm px-4  text-gray-900">
+    <%= it_asset.returned_at %>
+  </td>
+
+  <td class="text-sm px-4  text-gray-900">
+    <%= it_asset.asset_type %>
+  </td>
+
+  <td class="text-sm px-4  text-gray-900">
+    <%= it_asset.location %>
+  </td>
+  <td class="text-sm px-4  text-gray-900">
+    <% if action_name != "show" %>
+      <%= link_to "Edit", edit_it_asset_path(it_asset), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <% end %>
+  </td>
+</tr>
