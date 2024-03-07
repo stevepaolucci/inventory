@@ -3,11 +3,12 @@ class ItAssetsController < ApplicationController
 
   # GET /it_assets or /it_assets.json
   def index
-    @it_assets = ItAsset.all
+    @it_assets = ItAsset.all #.order(:barcode)
     if params['code'].present?
       @it_assets = @it_assets.where(barcode: params['code'])
       Scan.create(barcode: params['code'], scanned_at: Time.zone.now)
     end
+    @it_assets = @it_assets.order(:asset_subtype) if params['order'].present?
     # redirect_to new_it_asset_path if @it_assets.count == 0
     redirect_to "/it_assets/new?barcode=#{params['code']}" if @it_assets.count == 0
   end
@@ -71,6 +72,6 @@ class ItAssetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def it_asset_params
-      params.require(:it_asset).permit(:username, :barcode, :asset_name, :notes, :password, :distributed_at, :returned_at, :asset_type, :location, :damaged)
+      params.require(:it_asset).permit(:username, :asset_subtype, :barcode, :asset_name, :notes, :password, :distributed_at, :returned_at, :asset_type, :location, :damaged)
     end
 end

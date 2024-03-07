@@ -48,8 +48,15 @@
 
   <div class="my-5">
     <%= form.label :asset_type %>
-    <%= form.text_field :asset_type, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :asset_type, [["Computer", "computer"], ["Monitor", "monitor"], ["Printer", "printer"], ["Keyboard", "keyboard"]] %>
+    <%#= form.text_field :asset_type, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
+
+  <div class="my-5">
+    <%= form.label :asset_subtype, placeholder: 'PC, Mac, etc.' %>
+    <%= form.text_field :asset_subtype, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
 
   <div class="my-5">
     <%= form.label :location %>
